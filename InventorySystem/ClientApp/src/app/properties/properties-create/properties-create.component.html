@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="submit-form">
+                <form class="mt-3" [formGroup]="form" (ngSubmit)="createProperties()">
+                    <div class="form-group">
+                        <label for="computerTypeId">Computer Type</label>
+                        <select class="form-control" id="computerTypeId" formControlName="computerTypeId">
+                            <option value="">--Select--</option>
+                            <option *ngFor="let computerType of computerTypes" value="{{computerType.id}}">
+                                {{computerType.name}}
+                            </option>
+                        </select>
+                        <div *ngIf="f.computerTypeId.touched && f.computerTypeId.invalid" class="form-text text-danger">
+                            <div *ngIf="f.computerTypeId.errors.required">Computer Type is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="processor">Processor</label>
+                        <input type="text" class="form-control" id="processor" formControlName="processor" />
+                        <div *ngIf="f.processor.touched && f.processor.invalid" class="form-text text-danger">
+                            <div *ngIf="f.processor.errors.required">processor is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input type="text" class="form-control" id="brand" formControlName="brand" />
+                        <div *ngIf="f.brand.touched && f.brand.invalid" class="form-text text-danger">
+                            <div *ngIf="f.brand.errors.required">Brand is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usbPorts">Usb Ports</label>
+                        <input type="number" class="form-control" id="usbPorts" formControlName="usbPorts" />
+                        <div *ngIf="f.usbPorts.touched && f.usbPorts.invalid" class="form-text text-danger">
+                            <div *ngIf="f.usbPorts.errors.required">USB Ports is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ramSlots">Ram Slots</label>
+                        <input type="number" class="form-control" id="ramSlots" formControlName="ramSlots" />
+                        <div *ngIf="f.ramSlots.touched && f.ramSlots.invalid" class="form-text text-danger">
+                            <div *ngIf="f.ramSlots.errors.required">RAM Slots is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fromFactor">From Factor</label>
+                        <input type="text" class="form-control" id="fromFactor" formControlName="fromFactor" />
+                        <div *ngIf="f.fromFactor.touched && f.fromFactor.invalid" class="form-text text-danger">
+                            <div *ngIf="f.fromFactor.errors.required">FromFactor is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" formControlName="quantity" />
+                        <div *ngIf="f.quantity.touched && f.quantity.invalid" class="form-text text-danger">
+                            <div *ngIf="f.quantity.errors.required">Quantity is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="screenSize">Screen Size</label>
+                        <input type="text" class="form-control" id="screenSize" formControlName="screenSize" />
+                        <div *ngIf="f.screenSize.touched && f.screenSize.invalid" class="form-text text-danger">
+                            <div *ngIf="f.screenSize.errors.required">Screen Size is required.</div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary mt-2" type="submit" [disabled]="loading || !form.valid">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Create
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+
+</div>

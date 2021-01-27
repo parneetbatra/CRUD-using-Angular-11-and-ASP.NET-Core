@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="submit-form">
+                <form class="mt-3" [formGroup]="form" (ngSubmit)="updateComputerType()">
+                    <input type="hidden" id="id" formControlName="id" />
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" formControlName="name" />
+                        <div *ngIf="f.name.touched && f.name.invalid" class="form-text text-danger">
+                            <div *ngIf="f.name.errors.required">Name is required.</div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary mt-2" type="submit" [disabled]="loading || !form.valid">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Create
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+<div class="list row">
+    <div class="col-md-12">
+        <a class="btn btn-primary mb-2" [routerLink]="['/computer-type/create']">Create Computer Type</a>
+        <h4>Computer Type List</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id </th>
+                    <th>Name</th>
+                    <th width="250px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let computerType of computerTypes">
+                    <td>{{computerType.id}}</td>
+                    <td>{{computerType.name}}</td>
+                    <td>
+                        <a class="btn btn-primary me-2" href="/computer-type/{{computerType.id}}">Update</a>
+                        <a class="btn btn-danger" (click)="deleteComputerTypes(computerType.id)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

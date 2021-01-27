@@ -1,0 +1,37 @@
+<div class="list row">
+    <div class="col-md-12">
+        <a class="btn btn-primary mb-2" [routerLink]="['/properties/create']">Create Properties</a>
+        <h4>Properties List</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id </th>
+                    <th>Computer Type</th>
+                    <th>Processor</th>
+                    <th>Brand</th>
+                    <th>USB Ports</th>
+                    <th>RAM Slots</th>
+                    <th>From Factor</th>
+                    <th>Quantity</th>
+                    <th width="250px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let property of properties">
+                    <td>{{property.propertyId}}</td>
+                    <td>{{property.computerTypeName}}</td>
+                    <td>{{property.processor}}</td>
+                    <td>{{property.brand}}</td>
+                    <td>{{property.usbPorts}}</td>
+                    <td>{{property.ramSlots}}</td>
+                    <td>{{property.fromFactor}}</td>
+                    <td>{{property.quantity}}</td>
+                    <td>
+                        <a class="btn btn-primary me-2" href="/properties/{{property.propertyId}}">Update</a>
+                        <a class="btn btn-danger" (click)="deleteProperties(property.propertyId)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
